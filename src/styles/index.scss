@@ -1,0 +1,16 @@
+// Variables
+$primary : #FFE277;
+$secondary : #3F3D56;
+$bg-main : #F0F2F5;
+
+* { 
+box-sizing: border-box;
+padding : 0px;
+margin : 0px;
+}
+
+body { 
+  background-color: $bg-main;
+  height: 100vh;
+  width: 100vw;
+}
