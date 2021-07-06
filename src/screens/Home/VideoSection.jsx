@@ -1,15 +1,14 @@
 import React from "react";
 
-import coverVideo from "../../assets/Home/cover-video-real.mp4";
-import Image from "../../components/Image";
-// import logoName from "../../assets/Home/logo-name-white.png"
+import coverVideo from "../../assets/Home/cover.mp4";
 
-// import Image from "../../components/Image"
+
 
 import "../../styles/Home/video-section.scss";
 
 export default function VideoSection() {
   return (
+    <div className="col p-0">
     <section className="video-section">
       <div className="video-container">
         <video autoPlay muted loop className="w-100">
@@ -18,5 +17,6 @@ export default function VideoSection() {
         </video>
       </div>
     </section>
+    </div>
   );
 }
