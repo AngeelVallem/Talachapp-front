@@ -10,7 +10,7 @@ class Footer extends React.Component {
   render() {
     return (
       <Fragment>
-        <nav className="navbar fixed-bottom fContainer">
+        <nav className="navbar fContainer">
           <div className="container-fluid justify-content-start">
             <Logo />
             <Button />

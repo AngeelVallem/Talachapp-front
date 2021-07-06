@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 import facebook from "../../assets/Home/facebook-icon.svg";
-import github from "../../assets/Home/github-icon.svg";
+// import github from "../../assets/Home/github-icon.svg";
 import instagram from "../../assets/Home/instagram-icon.svg";
 
 const Icons = () => {
