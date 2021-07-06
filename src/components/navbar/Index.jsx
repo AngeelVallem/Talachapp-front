@@ -8,6 +8,7 @@ import NavItems from "./NavItems";
 
 import "../../styles/Navbar/index.scss";
 
+
 export default function Navbar(props) {
   const [burgerOpen, setBurgerOpen] = useState(false);
 
@@ -21,6 +22,7 @@ export default function Navbar(props) {
         <Image src={Logo} link route="home" />
       </div>
       <NavItems />
+      
     </nav>
   );
 }
