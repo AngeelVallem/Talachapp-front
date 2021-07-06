@@ -14,12 +14,12 @@ export default function Home(props) {
         <div className="row">
           <VideoSection />
         </div>
-        <div className="row">
+        <div className="row my-5">
           <WhySection />
         </div>
-        <div className="row">
+        <section className="row">
           <WorkerInfoSection />
-        </div>
+        </section>
       </div>
       <Footer />
     </>
