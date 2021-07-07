@@ -4,14 +4,16 @@ $secondary : #3F3D56;
 $bg-main : #F0F2F5;
 
 * { 
-box-sizing: border-box;
-padding : 0px;
-margin : 0px;
+  box-sizing: border-box;
+  padding : 0px;
+  margin : 0px;
+  overflow-x: hidden;
+
 }
 
 body { 
   background-color: $bg-main;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
 }
 
