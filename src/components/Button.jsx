@@ -11,7 +11,6 @@ const CustomButton = styled.button`
 export default function Button(props) {
   if (props.link) {
     return (
-      <Router>
         <Link to={`/${props.route}`}>
           <CustomButton
             {...props}
@@ -21,7 +20,6 @@ export default function Button(props) {
             {props.text}
           </CustomButton>
         </Link>
-      </Router>
     );
   }
 

@@ -19,7 +19,7 @@ export default function Navbar(props) {
     >
       <div className="d-flex align-items-center">
         <BurgerMenu isOpen={burgerOpen} setIsOpen={setBurgerOpen} />
-        <Image src={Logo} link route="home" />
+        <Image src={Logo} link/>
       </div>
       <NavItems />
       
