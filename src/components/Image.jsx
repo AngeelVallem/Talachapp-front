@@ -12,15 +12,18 @@ const CustomImage = styled.img`
 `;
 
 export default function Image(props) {
+  
+  const validRoute = !props.route ? '/' : `/${props.route}`
+
+
+
   if (props.link) {
     return (
-      <Router>
-        <Link to={`/${props.route}`}>
+        <Link to={validRoute}>
         <picture>
           <CustomImage {...props} />
         </picture>
       </Link>
-      </Router>
     );
   }
 

@@ -1,15 +1,11 @@
 import React from "react";
 
-import Navbar from "../../components/navbar/Index";
 import VideoSection from "./VideoSection";
 import WhySection from "./WhySection";
 import WorkerInfoSection from "./workerInfo/WorkerInfoSection";
-import Footer from "../../components/Footer/index"
 
-export default function Home(props) {
+export default function LandingPage(props) {
   return (
-    <>
-      <Navbar />
       <div className="container-fluid">
         <div className="row">
           <VideoSection />
@@ -21,7 +17,5 @@ export default function Home(props) {
           <WorkerInfoSection />
         </section>
       </div>
-      <Footer />
-    </>
   );
 }
