@@ -9,7 +9,7 @@ class RegisterCom extends React.Component {
   render() {
     return (
       <Fragment>
-        <div className="">
+        <div className="containerScroll d-flex">
           <LeftImg />
           <Form />
         </div>
