@@ -24,7 +24,7 @@ export default function AddUser() {
         email,
         password,
       };
-      // await postPost(newPost);
+      // await postPost(newUser);
       history.push("/");
     } catch (error) {
       console.log(error);
