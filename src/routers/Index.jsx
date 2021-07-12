@@ -5,6 +5,7 @@ import NavBar from "../components/navbar/Index";
 import LandingPage from "../screens/LandingPage/Index";
 import Register from "../screens/Register/index";
 import RegisterWorkers from "../screens/WorkersRegister";
+import Login from "../screens/Login/index";
 
 import Footer from "../components/Footer/";
 
@@ -22,6 +23,9 @@ export default function RouterApp() {
         </Route>
         <Route path="/registerForWorkers">
           <RegisterWorkers />
+          </Route>
+        <Route path="/login">
+          <Login />
         </Route>
       </Switch>
     </Router>
