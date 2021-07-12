@@ -1,61 +1,49 @@
 import React, { useState } from "react";
-
+import { ToastContainer, toast } from "react-toastify";
 import { useHistory } from "react-router";
 import logo from "../../assets/Home/LOGO.png";
 import { Link } from "react-router-dom";
 
-import { register } from "../../services";
+import { login } from "../../services";
 
-import CustomInput from "./CustomInput";
+import CustomInput from "../Register/CustomInput";
+
 // Services
 // import { postPost } from "../../services";
 
-export default function AddUser() {
-  const [username, setUser] = useState("");
+export default function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const history = useHistory();
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-
-    try {
-      const newUser = {
-        username,
-        email,
-        password,
-        premium : false,
-        roles : ['user']
-      };
-      // register(newUser);
-      console.log(newUser);  
-    } catch (error) {
-      console.log(error);
-    }
+  const clenInputs = () => {
+    setEmail("");
+    setPassword("");
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const user = {
+        email,
+        password,
+      };
+      login(user,history); 
+      
+      clenInputs();
+    } catch (error) {
+      return false
+    }
+  };
   return (
     <React.Fragment>
       {/* <div className="containerForm2"> */}
       <div className="containerForm">
         <form onSubmit={handleSubmit}>
           <img className="fLogo3" src={logo} alt="logo-icon" />
-          <label className="lb3">Registro</label>
-          <div className="form-group col-md-6 formDiv">
-            {/* <label htmlFor="title">Title</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="title" */}
-            <CustomInput
-              id="Usuario"
-              placeholder="Usuario"
-              value={username}
-              // onChange={(event) => setTitle(event.target.value)}
-              callback={setUser}
-            />
-          </div>
+          <label className="lb3">Iniciar sesion</label>
           <div className="form-group col-md-6 formDiv">
             <CustomInput
               id="Correo"
@@ -75,13 +63,14 @@ export default function AddUser() {
           </div>
           <button
             className="btn btn-warning btn-lg btn-block mt-4 buttonStyle"
+            onClick={handleSubmit}
             type="submit"
           >
-            Registrarme
+            Iniciar sesion
           </button>
-          <Link className="labLogo3" to="/">
+          <Link className="labLogo3" to="/login">
             <label className="lblMargin">
-              ¿Tienes ya una cuenta? Iniciar Sesión
+              ¿No tienes una cuenta? Registrarse
             </label>
           </Link>
         </form>

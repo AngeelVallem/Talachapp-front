@@ -1,29 +1,29 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-
-import NavBar from "../components/navbar/Index"
+import NavBar from "../components/navbar/Index";
 import LandingPage from "../screens/LandingPage/Index";
 import Register from "../screens/Register/index";
+import Login from "../screens/Login/index";
 
-
-import Footer from '../components/Footer/'
+import Footer from "../components/Footer/";
 
 export default function RouterApp() {
   return (
     <Router>
       <Switch>
-	
         <Route exact path="/">
-	    <NavBar/>
+          <NavBar />
           <LandingPage />
-          <Footer/>
+          <Footer />
         </Route>
         <Route path="/register">
-	<Register/>
+          <Register />
+        </Route>
+        <Route path="/login">
+          <Login />
         </Route>
       </Switch>
     </Router>
   );
 }
-
