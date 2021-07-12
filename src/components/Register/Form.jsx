@@ -11,7 +11,8 @@ import CustomInput from "./CustomInput";
 // import { postPost } from "../../services";
 
 export default function AddUser() {
-  const [username, setUser] = useState("");
+  const [name, setName] = useState("");
+  const [lastName, setLastName ] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -22,14 +23,14 @@ export default function AddUser() {
 
     try {
       const newUser = {
-        username,
+        name,
+        lastName,
         email,
         password,
         premium : false,
         roles : ['user']
       };
-      // register(newUser);
-      console.log(newUser);  
+      register(newUser);  
     } catch (error) {
       console.log(error);
     }
@@ -49,11 +50,25 @@ export default function AddUser() {
                   className="form-control"
                   id="title" */}
             <CustomInput
-              id="Usuario"
-              placeholder="Usuario"
-              value={username}
+              id="Nombre"
+              placeholder="Nombre"
+              value={name}
               // onChange={(event) => setTitle(event.target.value)}
-              callback={setUser}
+              callback={setName}
+            />
+          </div>
+          <div className="form-group col-md-6 formDiv">
+            {/* <label htmlFor="title">Title</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="title" */}
+            <CustomInput
+              id="Apellido"
+              placeholder="Apellido"
+              value={lastName}
+              // onChange={(event) => setTitle(event.target.value)}
+              callback={setLastName}
             />
           </div>
           <div className="form-group col-md-6 formDiv">

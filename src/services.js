@@ -56,7 +56,8 @@ export async function register(user, navigation) {
       draggable: true,
       progress: undefined,
     });
-    console.log(res);
+    navigation.push('/')
+    return res.data.token
   } catch (err) {
     toast.error(err.message, {
       position: "top-right",
