@@ -8,7 +8,7 @@ const Icons = () => {
   return (
     <Fragment>
       <div className=" d-flex positionIcons">
-        <Link
+        <a
           className="pe-3"
           href="https://www.facebook.com/Talachapp-102470575439167"
         >
@@ -19,7 +19,8 @@ const Icons = () => {
             height="30"
             alt="facebook-icon"
           />
-        </Link>
+        </a>
+
         <Link className="px-3" href="https://www.instagram.com/talachapp/">
           <img
             className="fIcons"

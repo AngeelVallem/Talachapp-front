@@ -47,6 +47,7 @@ export async function register(user, navigation) {
         "Content-Type": "application/json;charset=UTF-8",
       },
     });
+    window.localStorage.setItem("token", res.data.token);
     toast("Registrado exitoso", {
       position: "top-right",
       autoClose: 5000,

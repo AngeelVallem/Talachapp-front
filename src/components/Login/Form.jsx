@@ -8,9 +8,6 @@ import { login } from "../../services";
 
 import CustomInput from "../Register/CustomInput";
 
-// Services
-// import { postPost } from "../../services";
-
 export default function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
