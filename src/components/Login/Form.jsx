@@ -27,24 +27,26 @@ export default function LoginForm() {
         email,
         password,
       };
-      login(user,history); 
-      
+      login(user, history);
+
       clenInputs();
     } catch (error) {
-      return false
+      return false;
     }
   };
   return (
     <React.Fragment>
       {/* <div className="containerForm2"> */}
-      <div className="containerForm">
+      <div className="containerForm3">
         <form onSubmit={handleSubmit}>
-          <img className="fLogo3" src={logo} alt="logo-icon" />
-          <label className="lb3">Iniciar sesion</label>
+          <div className="d-flex align-items-center">
+            <img className="fLogo4" src={logo} alt="logo-icon" />
+            <label className="lb4">Iniciar sesión</label>
+          </div>
           <div className="form-group col-md-6 formDiv">
             <CustomInput
               id="Correo"
-              placeholder="Correo"
+              placeholder="Ej. Talachero24@gmail.com"
               value={email}
               callback={setEmail}
             />
@@ -52,20 +54,20 @@ export default function LoginForm() {
           <div className="form-group formDiv">
             <CustomInput
               id="Contraseña"
-              type="Contraseña"
+              type="password"
               placeholder="Contraseña"
               value={password}
               callback={setPassword}
             />
           </div>
           <button
-            className="btn btn-warning btn-lg btn-block mt-4 buttonStyle"
+            className="btn btn-warning btn-lg btn-block buttonStyle2"
             onClick={handleSubmit}
             type="submit"
           >
             Iniciar sesion
           </button>
-          <Link className="labLogo3" to="/login">
+          <Link className="labLogo3" to="/Register">
             <label className="lblMargin">
               ¿No tienes una cuenta? Registrarse
             </label>

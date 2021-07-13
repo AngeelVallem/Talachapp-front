@@ -30,7 +30,7 @@
   
   Form{
     margin-left: 40px;
-    margin-top: 100px;
+    margin-top: 25px;
     background:#3F3D56;
     opacity: 0.8;
     color: white;
@@ -42,6 +42,40 @@
       height: 100px;
     }
    .lb3{
+    font-family: Lilita One;
+    font-size: 48px;
+    // display: flex;
+    color: #ffff;
+    text-decoration:none;
+   } 
+
+  }
+ 
+}
+
+//Login
+.containerForm3{
+  width: 50%;
+  height: 100vh;
+  margin: 0%;
+  padding: 30px;
+  position: relative;
+  background:white;
+ 
+  Form{
+    margin-left: 40px;
+    margin-top: 25px;
+    background:#3F3D56;
+    opacity: 0.8;
+    color: white;
+    width: 600px;
+    
+    .fLogo4{
+      margin-left: 120px;
+      width: 100px;
+      height: 100px;
+    }
+   .lb4{
     font-family: Lilita One;
     font-size: 48px;
     // display: flex;
@@ -77,6 +111,21 @@
   border-radius: 10px;
   
 }
+.buttonStyle2{
+  width: 94%;
+  margin: 10px;
+  margin-left: 20px;
+  margin-top: 40px;
+  font-family: Lilita One;
+  font-size: 25px;
+  line-height: 29px;
+  color:black;
+  
+  background: #FFE277;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  
+}
 .textlabl{
   font-family: Lilita One;
   font-size: 24px;
@@ -95,6 +144,8 @@
 .lblMargin{
   margin-left: 20px;
 }
+
+
 
 // @media screen and (max-width: 768px) {
 //     .rectangle {
