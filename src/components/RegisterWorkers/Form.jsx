@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 
 import { useHistory } from "react-router";
-import logo from "../../assets/Home/LOGO.png";
-import { Link } from "react-router-dom";
 
 import CustomInput from "./CustomInput";
 // Services
@@ -28,6 +26,7 @@ export default function FormWorkers() {
         imgProf,
         imgIne,
       };
+
       //await postPost(newDataWorkers);
       history.push("/");
     } catch (error) {

@@ -6,7 +6,7 @@ export const colors = {
 
 export function validateToken() {
   if (window.localStorage.getItem("token")) {
-    return true
+    return window.localStorage.getItem("token")
   }
-  return false
+  return null
 }

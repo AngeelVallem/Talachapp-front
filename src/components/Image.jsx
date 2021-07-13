@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import {  Link } from "react-router-dom";
 
 const CustomImage = styled.img`
   ${({ size }) =>
@@ -9,6 +9,7 @@ const CustomImage = styled.img`
   height : 50px;`
       : `width : ${size};
   height : ${size};`}
+  ${({circle}) => circle && `border-radius : 3rem` }
 `;
 
 export default function Image(props) {
