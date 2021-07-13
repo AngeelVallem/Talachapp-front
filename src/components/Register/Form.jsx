@@ -12,7 +12,7 @@ import CustomInput from "./CustomInput";
 
 export default function AddUser() {
   const [name, setName] = useState("");
-  const [lastName, setLastName ] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -27,10 +27,10 @@ export default function AddUser() {
         lastName,
         email,
         password,
-        premium : false,
-        roles : ['user']
+        premium: false,
+        roles: ["user"],
       };
-      register(newUser,history);  
+      register(newUser, history);
     } catch (error) {
       console.log(error);
     }
@@ -41,40 +41,30 @@ export default function AddUser() {
       {/* <div className="containerForm2"> */}
       <div className="containerForm">
         <form onSubmit={handleSubmit}>
-          <img className="fLogo3" src={logo} alt="logo-icon" />
-          <label className="lb3">Registro</label>
+          <div className="d-flex align-items-center">
+            <img className="fLogo3" src={logo} alt="logo-icon" />
+            <label className="lb3">Registro</label>
+          </div>
           <div className="form-group col-md-6 formDiv">
-            {/* <label htmlFor="title">Title</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="title" */}
             <CustomInput
               id="Nombre"
-              placeholder="Nombre"
+              placeholder="Ej. Mario"
               value={name}
-              // onChange={(event) => setTitle(event.target.value)}
               callback={setName}
             />
           </div>
           <div className="form-group col-md-6 formDiv">
-            {/* <label htmlFor="title">Title</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="title" */}
             <CustomInput
               id="Apellido"
-              placeholder="Apellido"
+              placeholder="Andrade"
               value={lastName}
-              // onChange={(event) => setTitle(event.target.value)}
               callback={setLastName}
             />
           </div>
           <div className="form-group col-md-6 formDiv">
             <CustomInput
               id="Correo"
-              placeholder="Correo"
+              placeholder="Ej. Talachero24@gmail.com"
               value={email}
               callback={setEmail}
             />
@@ -82,7 +72,7 @@ export default function AddUser() {
           <div className="form-group formDiv">
             <CustomInput
               id="Contraseña"
-              type="Contraseña"
+              type="password"
               placeholder="Contraseña"
               value={password}
               callback={setPassword}
@@ -94,7 +84,7 @@ export default function AddUser() {
           >
             Registrarme
           </button>
-          <Link className="labLogo3" to="/">
+          <Link className="labLogo3" to="/login">
             <label className="lblMargin">
               ¿Tienes ya una cuenta? Iniciar Sesión
             </label>

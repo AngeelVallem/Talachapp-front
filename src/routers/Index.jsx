@@ -6,6 +6,7 @@ import LandingPage from "../screens/LandingPage/Index";
 import Register from "../screens/Register/index";
 import RegisterWorkers from "../screens/WorkersRegister";
 import Login from "../screens/Login/index";
+import Tickets from "../screens/Tickets";
 
 import Footer from "../components/Footer/";
 
@@ -23,9 +24,12 @@ export default function RouterApp() {
         </Route>
         <Route path="/registerForWorkers">
           <RegisterWorkers />
-          </Route>
+        </Route>
         <Route path="/login">
           <Login />
+        </Route>
+        <Route path="/Tickets">
+          <Tickets />
         </Route>
       </Switch>
     </Router>
