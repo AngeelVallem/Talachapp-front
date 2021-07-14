@@ -1,11 +1,40 @@
-.link{
+.link {
 	font-weight: 500;
 	text-decoration: none;
-	color : #000;
+	color: #000;
 
-	&:hover{
+	&:hover {
 		font-weight: 500;
-		color : #FFB367
+		color: #FFB367
 	}
 }
 
+
+
+.card-worker {
+	min-width: 300px;
+	min-height: 250px;
+	max-height: 250px;
+	background-color: #fff;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	border-radius: 0.5rem;
+	text-decoration: none;
+
+	.card-works {
+		width: 100%;
+		margin: 1rem 0;
+		overflow-x: scroll;
+		overflow-y: hidden;
+		white-space: nowrap;
+		overflow: hidden;
+		text-align: center;
+
+		.work-img {
+			width: 100px;
+			margin: 0 0.4rem;
+		}
+	}
+}
