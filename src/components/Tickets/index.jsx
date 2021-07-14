@@ -13,7 +13,11 @@ class TicketsCom extends React.Component {
       <Fragment>
         <div className="containerScroll d-flex">
           <NavbarReg />
-          <Tickets />
+          <div className="d-flex flex-column mrginTop">
+            <p className="title">Mis Tickets</p>
+            <Tickets />
+            <Tickets />
+          </div>
         </div>
       </Fragment>
     );

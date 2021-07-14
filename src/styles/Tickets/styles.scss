@@ -1,3 +1,75 @@
-.mainCard{
-    margin-top: 200px;
+
+.title{
+    margin-top: 100px;
+    font-size: 32px;
+    margin-left: 20px;
+    font-family: Lilita One;
+    font-style: normal;
+    font-weight:bold;
+
 }
+.mrginTop{
+    margin-top: 15px;
+}
+
+.mainCard{
+    margin-top: 20px;
+    min-width: 520.05px;
+    background-color: #3F3D56;
+    opacity: 0.8;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    color: white;
+    link{
+        text-decoration-color: red;
+    }
+    .log{
+        width: 40px;
+        height: 40px;
+    }
+    .btn1{
+        font-family: Lilita One;
+        font-size: 20px;
+        line-height: 29px;
+        background: #FFE277;
+        border-radius: 10px;
+
+
+        color:black;
+    }
+    .container:hover{
+        background  :#3F3D56;
+        border: 5px solid #3F3D56;
+        color: white;
+        transition-duration: .5s;
+        box-shadow: 0px 4px 4px #FFE277;
+    
+    }
+    .container:hover .btn1{
+        
+        background: #FFB367;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 10px;
+        transition-duration: .5s;
+    
+    }
+    
+    .card-title{
+        overflow-y: hidden;
+        text-decoration: none;
+    }
+    .lbl{
+        
+        text-decoration: none;
+        font-family: Lilita One;
+        font-size: 24px;
+        color: #ffff;
+        text-decoration:none;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .mainCard {
+      margin-left: 20px;
+    }
+  }
