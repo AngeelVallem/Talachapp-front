@@ -23,8 +23,8 @@ export async function login(user, navigation) {
       draggable: true,
       progress: undefined,
     });
-    navigation.push("/");
-    console.log(res.data.token);
+    navigation.push("/home");
+    return res.data.token
   } catch (err) {
     toast.error(err.message, {
       position: "top-right",
@@ -57,8 +57,50 @@ export async function register(user, navigation) {
       draggable: true,
       progress: undefined,
     });
-    navigation.push('/')
+    navigation.push('/home')
     return res.data.token
+  } catch (err) {
+    toast.error(err.message, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }
+}
+
+
+export async function getUser(token) {
+  const getByIdUrl = baseUrl + `users/token/${token}`;
+
+  try {
+    const res = await axios.get(getByIdUrl);
+  
+    return res.data.user
+  } catch (err) {
+    toast.error(err.message, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }
+}
+
+
+export async function getAll() {
+  const getAll = baseUrl + `users`;
+
+  try {
+    const res = await axios.get(getAll);
+  
+    return res.data.users
   } catch (err) {
     toast.error(err.message, {
       position: "top-right",

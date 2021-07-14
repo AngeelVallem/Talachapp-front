@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import NavBar from "../components/navbar/Index";
 import LandingPage from "../screens/LandingPage/Index";
+import Home from "../screens/Home/Index"
 import Register from "../screens/Register/index";
 import RegisterWorkers from "../screens/WorkersRegister";
 import Login from "../screens/Login/index";
@@ -18,6 +19,11 @@ export default function RouterApp() {
           <NavBar />
           <LandingPage />
           <Footer />
+        </Route>
+        <Route exact path="/home">
+          <NavBar />
+          <Home/>
+          <Footer/>
         </Route>
         <Route path="/register">
           <Register />
