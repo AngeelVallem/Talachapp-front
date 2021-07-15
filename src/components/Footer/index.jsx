@@ -16,10 +16,11 @@ class Footer extends React.Component {
           <div className="container-fluid justify-content-start">
             <Logo />
             <Button
+              className="btn-warning"
               color={colors.primary}
               link
               route="register"
-              text="Registrate ahora"
+              text="Regístrate ahora"
             />
             <Icons />
           </div>

@@ -4,10 +4,10 @@ const Button = () => {
   return (
     <Fragment>
       <button
-        className="btn d-none d-md-block fButton buttonText "
+        className="btn btn-warning d-none d-md-block fButton buttonText "
         type="button"
       >
-        Registrate ahora
+        Regístrate ahora
       </button>
     </Fragment>
   );

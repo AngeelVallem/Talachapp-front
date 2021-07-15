@@ -56,7 +56,7 @@ export default function AddUser() {
           <div className="form-group col-md-6 formDiv">
             <CustomInput
               id="Apellido"
-              placeholder="Andrade"
+              placeholder="Ej. Andrade"
               value={lastName}
               callback={setLastName}
             />
