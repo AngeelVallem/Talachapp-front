@@ -8,7 +8,7 @@ export default function CustomInput(props) {
       </label>
       <input
         type={props.type ? props.type : "text"}
-        className="form-control inputStyle"
+        className={`form-control inputStyle ${props.className}`}
         id={props.id}
         placeholder={props.placeholder}
         value={props.value}

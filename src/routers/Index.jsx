@@ -34,7 +34,7 @@ export default function RouterApp() {
         <Route path="/login">
           <Login />
         </Route>
-        <Route path="/Tickets">
+        <Route path="/tickets">
           <Tickets />
         </Route>
       </Switch>

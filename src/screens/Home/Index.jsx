@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 
 import WorkerCard from "../../components/workerCard/Index";
+import WorkersFilters from "../../components/WorkersFilters/Index"
 
-import { getAll } from "../../services";
+import { getWorkers } from "../../services";
 
 import "../../styles/workers/index.scss";
 
@@ -10,12 +11,12 @@ const Home = () => {
   const [workers, setWorkers] = useState(null);
 
   useEffect(() => {
-    async function getWorkers() {
-      const workers = await getAll();
+    async function getAllWorkers() {
+      const workers = await getWorkers();
       setWorkers(workers);
     }
 
-    getWorkers();
+    getAllWorkers();
   }, []);
 
   if (!workers) {
@@ -29,7 +30,7 @@ const Home = () => {
     <div className="container fix-screen">
       <div className="row">
         <div className="col-12 col-lg-3">
-          <h1 className="text-center">FILTROS</h1>
+          <WorkersFilters/>
         </div>
         <div className="col-12 col-lg-9">
          <div className="row">

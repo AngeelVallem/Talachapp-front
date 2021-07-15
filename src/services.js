@@ -113,3 +113,24 @@ export async function getAll() {
     });
   }
 }
+
+
+export async function getWorkers() {
+  const getWorkersUrl = baseUrl + `users/workers`;
+
+  try {
+    const res = await axios.get(getWorkersUrl);
+  
+    return res.data.workers
+  } catch (err) {
+    toast.error(err.message, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }
+}
