@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import { colors } from "../../globals/index";
 
@@ -7,35 +7,30 @@ import { Button, ButtonGroup } from "reactstrap";
 import "../../styles/WorkersFilters/index.scss";
 import CustomButton from "../Button";
 
-export default function WorkersFilters({setFilters,filters,reset}) {
+export default function WorkersFilters({ setFilters, filters, reset }) {
   const [cSelected, setCSelected] = useState([]);
-  const [locationSelected, setLocationSelected] = useState('All')
+  const [locationSelected, setLocationSelected] = useState("All");
 
-
-	const isAll = locationSelected === 'All' ? 'selected' : '';
+  const isAll = locationSelected === "All" ? "selected" : "";
 
   const resetFilter = () => {
-    setFilters('')
+    setFilters("");
     setCSelected([]);
-    setLocationSelected('All')
+    setLocationSelected("All");
   };
 
   const onChangeLocation = (e) => {
     const location = e.target.value;
 
     setLocationSelected(location);
-    setFilters(filters + '&location=' +  location)
-
+    setFilters(filters + "&location=" + location);
   };
 
-
-
   useEffect(() => {
-    cSelected.map(item => {
-      setFilters(filters + '&skills[]=' + item)
-    })
-    
-  },[cSelected])
+    cSelected.map((item) => {
+      setFilters(filters + "&skills[]=" + item);
+    });
+  }, [cSelected]);
 
   const onCheckboxBtnClick = (selected) => {
     const index = cSelected.indexOf(selected);
@@ -51,19 +46,23 @@ export default function WorkersFilters({setFilters,filters,reset}) {
     <div className="filters-container p-3 m-3 m-lg-0 mt-lg-3">
       <header>
         <h3 className="text-white text-center" onClick={() => alert("text")}>
-          Filtra talacheros
+          Filtra Talacheros
         </h3>
       </header>
       <div>
         <label className="text-white mt-2">Ubicacion</label>
-        <select className="select mb-3" onChange={onChangeLocation} value={locationSelected}>
+        <select
+          className="select mb-3"
+          onChange={onChangeLocation}
+          value={locationSelected}
+        >
           <option selected value="All">
             Todas
           </option>
-          <option value="Alvaro Obregon">Alvaro Obregon</option>
+          <option value="Álvaro Obregón">Álvaro Obregón</option>
           <option value="Azcapotzalco">Azcapotzalco</option>
           <option value="Benito Juárez">Benito Juárez</option>
-          <option value="Coyoacan">Coyoacán</option>
+          <option value="Coyoacán">Coyoacán</option>
           <option value="Cuajimalpa de Morelos">Cuajimalpa de Morelos</option>
           <option value="Cuauhtémoc">Cuauhtémoc</option>
           <option value="Gustavo A. Madero">Gustavo A. Madero</option>
@@ -74,14 +73,14 @@ export default function WorkersFilters({setFilters,filters,reset}) {
         </select>
 
         <h3 className="text-white">Skills Disponibles</h3>
-        <ButtonGroup className="d-flex flex-wrap p-3">
+        <ButtonGroup className="d-flex flex-wrap p-3 select">
           <Button
             color="white"
-            className="btn-outline-warning text-light m-1"
-            onClick={() => onCheckboxBtnClick("Carpinteria")}
-            active={cSelected.includes("Carpinteria")}
+            className=" btn-outline-warning text-light m-1 "
+            onClick={() => onCheckboxBtnClick("Carpintería")}
+            active={cSelected.includes("Carpintería")}
           >
-            Carpinteria
+            Carpintería
           </Button>
           <Button
             color="white"
@@ -93,25 +92,25 @@ export default function WorkersFilters({setFilters,filters,reset}) {
           </Button>
           <Button
             color="white"
-            onClick={() => onCheckboxBtnClick("Mecanico")}
-            active={cSelected.includes("Mecanico")}
+            onClick={() => onCheckboxBtnClick("Mecánico")}
+            active={cSelected.includes("Mecánico")}
             className="btn-outline-warning text-light m-1"
           >
-            Mecanico
+            Mecánico
           </Button>
           <Button
             color="white"
-            onClick={() => onCheckboxBtnClick("Albañileria")}
-            active={cSelected.includes("Albañileria")}
+            onClick={() => onCheckboxBtnClick("Albañilería")}
+            active={cSelected.includes("Albañilería")}
             className="btn-outline-warning text-light m-1"
           >
-            Albañileria
+            Albañilería
           </Button>
         </ButtonGroup>
         <div className="w-100 flex-wrap">
           <p className=" text-white">
             Seleccionada:{" "}
-            {cSelected.map((item,i) => (
+            {cSelected.map((item, i) => (
               <small key={i}> {item} ,</small>
             ))}
           </p>
@@ -122,7 +121,7 @@ export default function WorkersFilters({setFilters,filters,reset}) {
             color={colors.primary}
             className="mx-auto"
             onClick={() => {
-              resetFilter()
+              resetFilter();
               toast.warning("Filtros reseteados", {
                 position: "top-center",
                 autoClose: 5000,

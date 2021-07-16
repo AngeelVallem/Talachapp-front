@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 
-import AdminPanel from "./Panel";
+import AdminPanel from "../workerCard/Index";
 import Filtro from "./Filtro";
 
 import "../../styles/Admin/styles.scss";
