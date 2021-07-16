@@ -21,7 +21,7 @@ const Icons = () => {
           />
         </a>
 
-        <Link className="px-3" href="https://www.instagram.com/talachapp/">
+        <a className="px-3" href="https://www.instagram.com/talachapp/">
           <img
             className="fIcons2"
             src={instagram}
@@ -29,7 +29,7 @@ const Icons = () => {
             height="30"
             alt="instagram-icon"
           />
-        </Link>
+        </a>
       </div>
     </Fragment>
   );

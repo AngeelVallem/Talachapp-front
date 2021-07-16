@@ -12,26 +12,25 @@ import LoggedNavItems from "./LoggedNavItems";
 import "../../styles/Navbar/index.scss";
 
 export default function Navbar(props) {
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState(null);
   const [burgerOpen, setBurgerOpen] = useState(false);
   const [token, setToken] = useState(null);
 
   async function getCurrentUser() {
     try {
-      const user = await getUser(token)   
-        setUser(user)
+      const user = await getUser(token);
+      setUser(user);
     } catch (err) {
       console.log(err.message);
     }
   }
 
   useEffect(() => {
-    setToken(validateToken())
-    
-    if(token){
-      getCurrentUser()
-    }
+    setToken(validateToken());
 
+    if (token) {
+      getCurrentUser();
+    }
   }, [token]);
 
   return (
@@ -40,10 +39,22 @@ export default function Navbar(props) {
       {...props}
     >
       <div className="d-flex align-items-center">
-        <BurgerMenu isOpen={burgerOpen} setIsOpen={setBurgerOpen} />
+        <BurgerMenu
+          isOpen={burgerOpen}
+          setIsOpen={setBurgerOpen}
+          token={token}
+          user={user ? user : {}}
+        />
         <Image src={Logo} link />
       </div>
-      {token ? <LoggedNavItems setIsLogged={setToken} user={user ? user : {}}/> : <NavItems />}
+      {token ? (
+        <LoggedNavItems setIsLogged={setToken} user={user ? user : {}} />
+      ) : (
+        <React.Fragment>
+          {/* <BurgerMenu isOpen={burgerOpen} setIsOpen={setBurgerOpen} /> */}
+          <NavItems />
+        </React.Fragment>
+      )}
     </nav>
   );
 }
