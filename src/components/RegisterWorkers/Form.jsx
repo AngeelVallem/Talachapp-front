@@ -1,162 +1,174 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 
 import { useHistory } from "react-router";
-import { Dropdown, DropdownToggle, DropdownMenu } from "reactstrap";
+
+import { Button, ButtonGroup, Input } from "reactstrap";
+import {getUser,workerRegister} from "../../services"
+import {validateToken} from "../../globals/index"
+import "../../styles/WorkersFilters/index.scss";
 
 import CustomInput from "./CustomInput";
 // Services
 // import { postPost } from "../../services";
 
 export default function FormWorkers() {
-  const [dropdownOpen, setDropdownOpen] = useState(false);
 
-  const [skills, setSkills] = useState([]);
+  const [cSelected, setCSelected] = useState([]);
   const [tarifa, setTarifa] = useState("");
-  const [experiencia, setExp] = useState("");
-  const [imgProf, setImgProf] = useState("");
-  const [imgIne, setImgIne] = useState("");
-
-  const checkHandler = (event) => {
-    let skill = event.target.name;
-    setSkills([...skills, skill]);
-  };
-  const toggle = () => setDropdownOpen((prevState) => !prevState);
+  const [experiencia, setExperiencia] = useState("");
+  const [location, setLocation] = useState([]);
+  const [token,setToken] = useState(null)
+  const [user, setUser] = useState(null)
 
   const history = useHistory();
+
+  async function getClient() {
+    try {
+      const user = await getUser(token);
+      setUser(user);
+    } catch (err) {
+      console.log(err.message);
+    }
+  }
+
+  useEffect(() => {
+    setToken(validateToken());
+
+    if (token) {
+      getClient();
+    }
+  }, [token]);
+
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
       const newDataWorkers = {
-        skills,
-        tarifa,
-        experiencia,
-        imgProf,
-        imgIne,
+        skills: cSelected,
+        price : tarifa,
+        description : experiencia,
+        location,
+        premium : false,
+        roles : ["user", "worker"]
       };
-
+      workerRegister(user._id, newDataWorkers,history)
       //await postPost(newDataWorkers);
-      history.push("/");
     } catch (error) {
       console.log(error);
     }
   };
 
-  return (
+  const onChangeLocation= (e) => {
+      const location = e.target.value
+
+      if(location === 'All'){
+        setLocation(["Coyoacán"])
+      }
+      setLocation([location])
+  }
+
+  const onCheckboxBtnClick = (selected) => {
+    const index = cSelected.indexOf(selected);
+    if (index < 0) {
+      cSelected.push(selected);
+    } else {
+      cSelected.splice(index, 1);
+    }
+    setCSelected([...cSelected]);
+  };
+
+    if(!user){
+      return(
+        <h1>LOADING</h1>
+      )
+    }
+    return (
     <React.Fragment>
       <div className="containerForm2">
         <form onSubmit={handleSubmit}>
           <label className="lb3 text-center">
             Demuestra tus habilidades uniéndote como talachero
           </label>
-          <div className="form-group col-md-6 formDiv">
+          <div className="form-group  formDiv">
             <label>Habilidades</label>
-            {/* <CustomInput
-              id="skills"
-              placeholder="Ej. Electricista, Plomero, etc. "
-              value={skills}
-              callback={setSkills}
-            /> */}
-            <Dropdown direction="right" isOpen={dropdownOpen} toggle={toggle}>
-              <DropdownToggle caret color="warning">
-                Habilidades
-              </DropdownToggle>
-              <DropdownMenu  className='fix-drop'>
-                <div className="A">
-                  <div className="form-check">
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      value=""
-                      id="check1"
-                      name="skill1"
-                      onClick={checkHandler}
-                    />
-                    <label className="form-check-label" for="defaultCheck1">
-                      Albañilería
-                    </label>
-                  </div>
-                  <div className="form-check">
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      value=""
-                      id="check2"
-                      name="skill2"
-                      onClick={checkHandler}
-                    />
-                    <label className="form-check-label" for="defaultCheck1">
-                      Mecánico
-                    </label>
-                  </div>
-                  <div className="form-check">
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      value=""
-                      id="check3"
-                      name="skill3"
-                      onClick={checkHandler}
-                    />
-                    <label className="form-check-label" for="defaultCheck1">
-                      Electricista
-                    </label>
-                  </div>
-                  <div className="form-check">
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      value=""
-                      id="check4"
-                      name="skill4"
-                      onClick={checkHandler}
-                    />
-                    <label className="form-check-label" for="defaultCheck1">
-                      Carpintería
-                    </label>
-                  </div>
-                </div>
-              </DropdownMenu>
-            </Dropdown>
+            <ButtonGroup className="d-flex flex-wrap p-3">
+              <Button
+                color="white"
+                className="btn-outline-warning text-light m-1"
+                onClick={() => onCheckboxBtnClick("Carpintería")}
+                active={cSelected.includes("Carpintería")}
+              >
+                Carpinteria
+              </Button>
+              <Button
+                color="white"
+                onClick={() => onCheckboxBtnClick("Electricista")}
+                className="btn-outline-warning text-light m-1"
+                active={cSelected.includes("Electricista")}
+              >
+                Electricista
+              </Button>
+              <Button
+                color="white"
+                onClick={() => onCheckboxBtnClick("Mecánico")}
+                active={cSelected.includes("Mecánico")}
+                className="btn-outline-warning text-light m-1"
+              >
+                Mecanico
+              </Button>
+              <Button
+                color="white"
+                onClick={() => onCheckboxBtnClick("Albañilería")}
+                active={cSelected.includes("Albañilería")}
+                className="btn-outline-warning text-light m-1"
+              >
+                Albañileria
+              </Button>
+            </ButtonGroup>
           </div>
-
-          <div className="form-group formDiv">
-            <label>Tarifa</label>
-            <CustomInput
-              id="tarifa"
-              placeholder="Ej. $100 c/hr"
-              value={tarifa}
-              callback={setTarifa}
-            />
+          <div className="form-group formDiv d-flex justify-content-between">
+            <div>
+              <label>Tarifa por hora</label>
+              <CustomInput
+                className="p-2"
+                id="tarifa"
+                placeholder="Ej. $100 c/hr"
+                value={tarifa}
+                callback={setTarifa}
+              />
+            </div>
           </div>
           <div className="form-group col-md-6 formDiv">
-            <label>Años de Experiencia</label>
-            <CustomInput
-              id="experiencia"
-              placeholder="Ej. 5 años "
+            <label className="text-white mt-2">Ubicacion</label>
+            <select className="s mb-3" onChange={onChangeLocation}>
+              <option selected value="All">
+                Todas
+              </option>
+              <option value="Álvaro_Obregón">Alvaro Obregon</option>
+              <option value="Azcapotzalco">Azcapotzalco</option>
+              <option value="Benito_Juárez">Benito Juárez</option>
+              <option value="Coyoacán">Coyoacán</option>
+              <option value= "Cuajimalpa_de_Morelos">
+                Cuajimalpa de Morelos
+              </option>
+              <option value="Cuauhtémoc">Cuauhtémoc</option>
+              <option value="GustavoA_Madero">Gustavo A. Madero</option>
+              <option value="Iztacalco">Iztacalco</option>
+              <option value="Tlalpan">Tlalpan</option>
+              <option value="Venustiano_Carranza">Venustiano Carranza</option>
+              <option value="Xochimilco">Xochimilco</option>
+            </select>
+          </div>
+          <div className="form-group col-md-6 formDiv">
+            <label>Describe un poco de ti y tu trabajo</label>
+            <Input
+              type="textarea"
+              name="text"
+              id="exampleText"
+              color="#FFFAF1"
               value={experiencia}
-              callback={setExp}
-            />
-          </div>
-          <div className="form-group col-md-6 formDiv">
-            <label>Imagen de Perfil</label>
-            <CustomInput
-              id="imgProf"
-              placeholder="imgProf"
-              value={imgProf}
-              callback={setImgProf}
-              type="file"
-            />
-          </div>
-          <div className="form-group col-md-6 formDiv">
-            <label>Imagen INE</label>
-            <CustomInput
-              id="imgIne"
-              placeholder="imgIne"
-              value={imgIne}
-              callback={setImgIne}
-              type="file"
+              onChange={(e) => setExperiencia(e.target.value)}
             />
           </div>
           <button

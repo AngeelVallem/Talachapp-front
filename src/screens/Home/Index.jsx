@@ -44,7 +44,6 @@ getAllWorkers()
   }
 
 
-  console.log(workers);
   return (
     <div className="container fix-screen">
       <div className="row">
@@ -53,7 +52,7 @@ getAllWorkers()
         </div>
         <div className="col-12 col-lg-9">
           <div className="row">
-            {workers.map((worker, i) => (
+            {workers === [] ? <h1>No hay talacheros disponibles en esa zona por el</h1> : workers.map((worker, i) => (
               <WorkerCard key={i} worker={worker} />
             ))}
           </div>

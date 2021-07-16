@@ -10,6 +10,7 @@ import Login from "../screens/Login/index";
 import Tickets from "../screens/Tickets";
 import Admin from "../screens/Admin";
 
+import PaymentSuccess from "../screens/Payment/Success";
 import Footer from "../components/Footer/";
 
 export default function RouterApp() {
@@ -30,7 +31,9 @@ export default function RouterApp() {
           <Register />
         </Route>
         <Route path="/registerForWorkers">
+          <NavBar />
           <RegisterWorkers />
+          <Footer />
         </Route>
         <Route path="/login">
           <Login />
@@ -38,10 +41,20 @@ export default function RouterApp() {
         <Route path="/tickets">
           <NavBar />
           <Tickets />
-          <Footer fixed/>
+          <Footer fixed />
         </Route>
         <Route path="/admin">
           <Admin />
+        </Route>
+        <Route exact path="/payment/success">
+          <NavBar />
+          <PaymentSuccess />
+          <Footer  />
+        </Route>
+        <Route exact path="/payment/canceled">
+          <NavBar />
+          <Home />
+          <Footer />
         </Route>
       </Switch>
     </Router>

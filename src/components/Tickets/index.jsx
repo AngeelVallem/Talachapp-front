@@ -24,7 +24,6 @@ function TicketsCom() {
   const [client, setClient] = useState(null);
   const [tickets, setTickets] = useState(null);
   const [token, setToken] = useState(null);
-  const [refresh, setRefresh] = useState(false)
 
 
   async function getClient() {

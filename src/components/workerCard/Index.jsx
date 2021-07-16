@@ -45,11 +45,6 @@ const [isOpen, setIsOpen] = useState(false)
         </div>
             </div>
           </Link>
-          <Button
-            text="..."
-            color="#fff"
-            className="d-flex align-items-center"
-          />
         </div>
       
       <p className="mb-2 over">{worker.description}</p>

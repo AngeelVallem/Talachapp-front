@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import Image from "../Image";
 import Link from "../Link";
 import Button from "../Button";
-
+import Pay from "../../screens/Payment/Index"
 import { colors } from "../../globals/index";
 
 export default function LoggedNavItems(props) {
@@ -36,6 +36,7 @@ export default function LoggedNavItems(props) {
         circle
         size="60px"
       />
+      <Pay user={user}/>
     </div>
   );
 }

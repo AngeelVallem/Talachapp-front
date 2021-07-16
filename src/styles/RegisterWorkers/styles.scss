@@ -8,9 +8,10 @@
     margin: 0%;
     padding: 30px;
     position: relative;
-    background:white;
-    
-    
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    background-image: radial-gradient(circle at 50% -20.71%, #fffff6 0, #fffbe1 16.67%, #faedcc 33.33%, #f2deb5 50%, #ebcf9f 66.67%, #e6c08c 83.33%, #e2b17a 100%);
     Form{
       margin-left: 29%;//435px
       margin-right: 29%;//435px

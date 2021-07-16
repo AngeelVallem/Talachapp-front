@@ -5,7 +5,7 @@ export default function CustomInput(props) {
     <React.Fragment>
       <input
         type={props.type ? props.type : "text"}
-        className="form-control inputStyle2"
+        className={`form-control inputStyle2 ${props.className}`}
         id={props.id}
         placeholder={props.placeholder}
         value={props.value}

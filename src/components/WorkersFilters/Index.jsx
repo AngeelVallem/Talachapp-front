@@ -24,17 +24,19 @@ export default function WorkersFilters({setFilters,filters,reset}) {
     const location = e.target.value;
 
     setLocationSelected(location);
-    setFilters(filters + '&location=' +  location)
-
+    setFilters( filters +'&location=' +  location)
+    console.log(filters);
   };
 
 
 
   useEffect(() => {
-    cSelected.map(item => {
-      setFilters(filters + '&skills[]=' + item)
-    })
-    
+    console.log(cSelected);
+    const str = cSelected.reduce((acum,curr) => {
+      return acum + `&skills[]=${curr}`
+    },'')
+
+    setFilters(str)
   },[cSelected])
 
   const onCheckboxBtnClick = (selected) => {
@@ -60,16 +62,16 @@ export default function WorkersFilters({setFilters,filters,reset}) {
           <option selected value="All">
             Todas
           </option>
-          <option value="Alvaro Obregon">Alvaro Obregon</option>
+          <option value="Alvaro_Obregon">Alvaro Obregon</option>
           <option value="Azcapotzalco">Azcapotzalco</option>
-          <option value="Benito Juárez">Benito Juárez</option>
+          <option value="Benito_Juarez">Benito Juárez</option>
           <option value="Coyoacan">Coyoacán</option>
-          <option value="Cuajimalpa de Morelos">Cuajimalpa de Morelos</option>
+          <option value="Cuajimalpa_de_Morelos">Cuajimalpa de Morelos</option>
           <option value="Cuauhtémoc">Cuauhtémoc</option>
-          <option value="Gustavo A. Madero">Gustavo A. Madero</option>
+          <option value="Gustavo_A_Madero">Gustavo A. Madero</option>
           <option value="Iztacalco">Iztacalco</option>
           <option value="Tlalpan">Tlalpan</option>
-          <option value="Venustiano Carranza">Venustiano Carranza</option>
+          <option value="Venustiano_Carranza">Venustiano Carranza</option>
           <option value="Xochimilco">Xochimilco</option>
         </select>
 
@@ -139,3 +141,4 @@ export default function WorkersFilters({setFilters,filters,reset}) {
     </div>
   );
 }
+

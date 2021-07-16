@@ -49,7 +49,7 @@ function handlerStatus(status){
             onClick={() => history.push(`/worker/KEY`)}
           >
             <img className="log" src={logo} alt="logo-icon" />
-            <label className="lbl">{ticket._id}</label>
+
           </Link>
 
           {client.roles.includes('worker') &&  <h5 className="card-title">{client.name}{"  "}{client.lastName}</h5>}

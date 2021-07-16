@@ -13,7 +13,7 @@ export async function login(user, navigation) {
       },
     });
     window.localStorage.setItem("token", res.data.token);
-    
+
     toast("Logeado satisfactoriamente", {
       position: "top-right",
       autoClose: 5000,
@@ -24,7 +24,7 @@ export async function login(user, navigation) {
       progress: undefined,
     });
     navigation.push("/home");
-    return res.data.token
+    return res.data.token;
   } catch (err) {
     toast.error(err.message, {
       position: "top-right",
@@ -57,8 +57,8 @@ export async function register(user, navigation) {
       draggable: true,
       progress: undefined,
     });
-    navigation.push('/home')
-    return res.data.token
+    navigation.push("/home");
+    return res.data.token;
   } catch (err) {
     toast.error(err.message, {
       position: "top-right",
@@ -68,31 +68,26 @@ export async function register(user, navigation) {
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-    }); 
+    });
   }
 }
-
 
 export async function getUser(token) {
   const getByIdUrl = baseUrl + `users/token/${token}`;
-
   try {
     const res = await axios.get(getByIdUrl);
-  
     
-    return res.data.user
-  } catch (err) {
-  }
+    return res.data.user;
+  } catch (err) {}
 }
-
 
 export async function getAll() {
   const getAll = baseUrl + `users`;
 
   try {
     const res = await axios.get(getAll);
-  
-    return res.data.users
+
+    return res.data.users;
   } catch (err) {
     toast.error(err.message, {
       position: "top-right",
@@ -105,15 +100,14 @@ export async function getAll() {
     });
   }
 }
-
 
 export async function getWorkers() {
   const getWorkersUrl = baseUrl + `users/workers`;
 
   try {
     const res = await axios.get(getWorkersUrl);
-  
-    return res.data.workers
+
+    return res.data.workers;
   } catch (err) {
     toast.error(err.message, {
       position: "top-right",
@@ -127,16 +121,15 @@ export async function getWorkers() {
   }
 }
 
-export async function getTickets (status) {
+export async function getTickets(status) {
+  const hasStatus = status ? `tickets?status=${status}` : "tickets";
 
-  const hasStatus =  status ? `tickets?status=${status}` : 'tickets'
-
-  const getTicketsUrl = baseUrl + hasStatus
+  const getTicketsUrl = baseUrl + hasStatus;
 
   try {
     const res = await axios.get(getTicketsUrl);
 
-    return res.data.tickets
+    return res.data.tickets;
   } catch (err) {
     toast.error(err.message, {
       position: "top-right",
@@ -150,9 +143,8 @@ export async function getTickets (status) {
   }
 }
 
-
-export async function generateTicket (ticket,history) {
-  const generateUrl  = baseUrl + 'tickets/generate'
+export async function generateTicket(ticket, history) {
+  const generateUrl = baseUrl + "tickets/generate";
   try {
     const res = await axios.post(generateUrl, ticket, {
       headers: {
@@ -168,55 +160,8 @@ export async function generateTicket (ticket,history) {
       draggable: true,
       progress: undefined,
     });
-    history.push('/tickets')
-    return res.data.tickets
-  } catch (err) {
-    toast.error(err.message, {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
-  } 
-}
-
-
-export async function changeStatus (id, status) {
-  const generateUrl  = baseUrl + `tickets/changeStatus/${id}`
-
-  try {
-
-    const res = await axios.patch(generateUrl, status, {
-      headers: {
-        "Content-Type": "application/json;charset=UTF-8",
-      },
-    });
-    return res.data.ticket
-  } catch (err) {
-    toast.error(err.message, {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
-  } 
-}
-
-
-
-export async function getFilteredWorkers(params) {
-
-  const getWorkersUrl = baseUrl + `users?roles=worker${params}`;
-
-  try {
-    const res = await axios.get(getWorkersUrl);
-    return res.data.users
+    history.push("/tickets");
+    return res.data.tickets;
   } catch (err) {
     toast.error(err.message, {
       position: "top-right",
@@ -229,4 +174,83 @@ export async function getFilteredWorkers(params) {
     });
   }
 }
-//http://localhost:8080/users?location=Coyoacan&skills[]=Mecanico
+
+export async function changeStatus(id, status) {
+  const generateUrl = baseUrl + `tickets/changeStatus/${id}`;
+
+  try {
+    const res = await axios.patch(generateUrl, status, {
+      headers: {
+        "Content-Type": "application/json;charset=UTF-8",
+      },
+    });
+    return res.data.ticket;
+  } catch (err) {
+    toast.error(err.message, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }
+}
+
+export async function getFilteredWorkers(params) {
+  const getWorkersUrl = baseUrl + `users?roles=worker${params}`;
+
+  console.log(getWorkersUrl);
+
+  try {
+    const res = await axios.get(getWorkersUrl);
+    return res.data.users;
+  } catch (err) {
+    toast.error(err.message, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }
+}
+
+
+
+
+export async function workerRegister(id, data,history) {
+  const generateUrl = baseUrl + `users/${id}`;
+
+  try {
+    const res = await axios.patch(generateUrl, data, {
+      headers: {
+        "Content-Type": "application/json;charset=UTF-8",
+      },
+    });
+    toast("Registro exitoso", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+    history.push("/payment");
+    return res.data.user;
+  } catch (err) {
+    toast.error(err.message, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }
+}
