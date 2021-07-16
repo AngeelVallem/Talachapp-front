@@ -50,12 +50,12 @@ export default function Tickets({ ticket, client, refresh }) {
             <Link
               className="d-flex lbl"
               onClick={() => history.push(`/worker/KEY`)}
-            >
-              <label className="lbl">ID: {ticket._id}</label>
-            </Link>
+            ></Link>
             <div className="d-flex align-items-center">
               {client.roles.includes("worker") && (
                 <label className="card-title abc">
+                  Talachero:
+                  {"  "}
                   {client.name}
                   {"  "}
                   {client.lastName}

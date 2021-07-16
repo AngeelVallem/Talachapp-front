@@ -85,18 +85,16 @@
     
 }
 .zoom:hover{
-    background-color: orange ;
-    color: black;
-    transition: .4s;
-    font-weight: bold;
+    background-color: #2e2d3f ;
     label{
-        color: black;
+        color: white;
     }
+    transition: .4s;
+    
     
 }
 .abc{
     font-size: 20px;
-
 }
 
 @media screen and (min-width: 768px) {

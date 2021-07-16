@@ -8,27 +8,20 @@ import { colors } from "../../globals/index";
 
 import "../../styles/Footer/styles.scss";
 
-function Footer (props) {
+function Footer(props) {
+  const fixedTop = props.fixed ? "fixed-bottom" : "";
 
-const fixedTop = props.fixed ? 'fixed-bottom' : ''
-  
-    return (
-      <Fragment>
-        <footer className={`navbar fContainer ${fixedTop}`}>
-          <div className="container-fluid justify-content-start">
-            <Logo />
-            <Button
-              className="btn-warning"
-              color={colors.primary}
-              link
-              route="register"
-              text="Regístrate ahora"
-            />
-            <Icons />
-          </div>
-        </footer>
-      </Fragment>
-    );
+  return (
+    <Fragment>
+      <footer className={`navbar fContainer ${fixedTop}`}>
+        <div className="container-fluid justify-content-start">
+          <Logo />
+
+          <Icons />
+        </div>
+      </footer>
+    </Fragment>
+  );
 }
 
 export default Footer;

@@ -39,13 +39,21 @@ export default function Navbar(props) {
       {...props}
     >
       <div className="d-flex align-items-center">
-        <BurgerMenu isOpen={burgerOpen} setIsOpen={setBurgerOpen} />
+        <BurgerMenu
+          isOpen={burgerOpen}
+          setIsOpen={setBurgerOpen}
+          token={token}
+          user={user ? user : {}}
+        />
         <Image src={Logo} link />
       </div>
       {token ? (
         <LoggedNavItems setIsLogged={setToken} user={user ? user : {}} />
       ) : (
-        <NavItems />
+        <React.Fragment>
+          {/* <BurgerMenu isOpen={burgerOpen} setIsOpen={setBurgerOpen} /> */}
+          <NavItems />
+        </React.Fragment>
       )}
     </nav>
   );
