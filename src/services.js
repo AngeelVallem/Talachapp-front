@@ -68,7 +68,7 @@ export async function register(user, navigation) {
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-    });
+    }); 
   }
 }
 
@@ -79,17 +79,9 @@ export async function getUser(token) {
   try {
     const res = await axios.get(getByIdUrl);
   
+    
     return res.data.user
   } catch (err) {
-    toast.error(err.message, {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
   }
 }
 
@@ -134,3 +126,107 @@ export async function getWorkers() {
     });
   }
 }
+
+export async function getTickets (status) {
+
+  const hasStatus =  status ? `tickets?status=${status}` : 'tickets'
+
+  const getTicketsUrl = baseUrl + hasStatus
+
+  try {
+    const res = await axios.get(getTicketsUrl);
+
+    return res.data.tickets
+  } catch (err) {
+    toast.error(err.message, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }
+}
+
+
+export async function generateTicket (ticket,history) {
+  const generateUrl  = baseUrl + 'tickets/generate'
+  try {
+    const res = await axios.post(generateUrl, ticket, {
+      headers: {
+        "Content-Type": "application/json;charset=UTF-8",
+      },
+    });
+    toast("Solicitud de contratacion creada", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+    history.push('/tickets')
+    return res.data.tickets
+  } catch (err) {
+    toast.error(err.message, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  } 
+}
+
+
+export async function changeStatus (id, status) {
+  const generateUrl  = baseUrl + `tickets/changeStatus/${id}`
+
+  try {
+
+    const res = await axios.patch(generateUrl, status, {
+      headers: {
+        "Content-Type": "application/json;charset=UTF-8",
+      },
+    });
+    return res.data.ticket
+  } catch (err) {
+    toast.error(err.message, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  } 
+}
+
+
+
+export async function getFilteredWorkers(params) {
+
+  const getWorkersUrl = baseUrl + `users?roles=worker${params}`;
+
+  try {
+    const res = await axios.get(getWorkersUrl);
+    return res.data.users
+  } catch (err) {
+    toast.error(err.message, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }
+}
+//http://localhost:8080/users?location=Coyoacan&skills[]=Mecanico

@@ -1,15 +1,19 @@
 
+.save-top{
+    margin-top: 5rem;
+}
+
+.save-bot{
+    margin-bottom: 10rem;
+}
+
 .title{
     margin-top: 100px;
-    font-size: 32px;
-    margin-left: 20px;
-    font-family: Lilita One;
-    font-style: normal;
-    font-weight:bold;
+    background-color : #f8f8f8 !important;
 
 }
 .mrginTop{
-    margin-top: 15px;
+    margin-top: 5rem;
 }
 
 .mainCard{
@@ -37,23 +41,12 @@
 
         color:black;
     }
-    .container:hover{
-        background  :#3F3D56;
-        border: 5px solid #3F3D56;
-        color: white;
-        transition-duration: .5s;
-        box-shadow: 0px 4px 4px #FFE277;
-    
+
+    .tab {
+        cursor: pointer !important;
+        overflow : hidden;
     }
-    .container:hover .btn1{
-        
-        background: #FFB367;
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-        border-radius: 10px;
-        transition-duration: .5s;
-    
-    }
-    
+
     .card-title{
         overflow-y: hidden;
         text-decoration: none;
@@ -72,4 +65,9 @@
     .mainCard {
       margin-left: 20px;
     }
+  }
+
+  li{
+      cursor: pointer;
+      overflow: hidden;
   }

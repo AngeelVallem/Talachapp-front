@@ -9,7 +9,9 @@
 	}
 }
 
-
+.over {
+	overflow: hidden;
+}
 
 .card-worker {
 	min-width: 300px;
@@ -22,6 +24,13 @@
 	justify-content: space-between;
 	border-radius: 0.5rem;
 	text-decoration: none;
+
+	.b{	
+		color: #fff;
+		background-color: #3F3D56;
+		border-radius: 5px;
+		padding: 2px !important;
+	}
 
 	.card-works {
 		width: 100%;

@@ -36,7 +36,9 @@ export default function RouterApp() {
           <Login />
         </Route>
         <Route path="/tickets">
+          <NavBar />
           <Tickets />
+          <Footer fixed/>
         </Route>
         <Route path="/Admin">
           <Admin />

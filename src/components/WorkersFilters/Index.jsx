@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { toast } from "react-toastify";
 import { colors } from "../../globals/index";
 
@@ -7,13 +7,15 @@ import { Button, ButtonGroup } from "reactstrap";
 import "../../styles/WorkersFilters/index.scss";
 import CustomButton from "../Button";
 
-export default function WorkersFilters() {
+export default function WorkersFilters({setFilters,filters,reset}) {
   const [cSelected, setCSelected] = useState([]);
   const [locationSelected, setLocationSelected] = useState('All')
+
 
 	const isAll = locationSelected === 'All' ? 'selected' : '';
 
   const resetFilter = () => {
+    setFilters('')
     setCSelected([]);
     setLocationSelected('All')
   };
@@ -22,9 +24,18 @@ export default function WorkersFilters() {
     const location = e.target.value;
 
     setLocationSelected(location);
-
+    setFilters(filters + '&location=' +  location)
 
   };
+
+
+
+  useEffect(() => {
+    cSelected.map(item => {
+      setFilters(filters + '&skills[]=' + item)
+    })
+    
+  },[cSelected])
 
   const onCheckboxBtnClick = (selected) => {
     const index = cSelected.indexOf(selected);
@@ -52,7 +63,7 @@ export default function WorkersFilters() {
           <option value="Alvaro Obregon">Alvaro Obregon</option>
           <option value="Azcapotzalco">Azcapotzalco</option>
           <option value="Benito Juárez">Benito Juárez</option>
-          <option value="Coyoacán">Coyoacán</option>
+          <option value="Coyoacan">Coyoacán</option>
           <option value="Cuajimalpa de Morelos">Cuajimalpa de Morelos</option>
           <option value="Cuauhtémoc">Cuauhtémoc</option>
           <option value="Gustavo A. Madero">Gustavo A. Madero</option>
@@ -111,7 +122,7 @@ export default function WorkersFilters() {
             color={colors.primary}
             className="mx-auto"
             onClick={() => {
-              resetFilter();
+              resetFilter()
               toast.warning("Filtros reseteados", {
                 position: "top-center",
                 autoClose: 5000,

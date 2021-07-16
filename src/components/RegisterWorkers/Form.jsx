@@ -62,7 +62,7 @@ export default function FormWorkers() {
               <DropdownToggle caret color="warning">
                 Habilidades
               </DropdownToggle>
-              <DropdownMenu>
+              <DropdownMenu  className='fix-drop'>
                 <div className="A">
                   <div className="form-check">
                     <input

@@ -8,11 +8,13 @@ import { colors } from "../../globals/index";
 
 import "../../styles/Footer/styles.scss";
 
-class Footer extends React.Component {
-  render() {
+function Footer (props) {
+
+const fixedTop = props.fixed ? 'fixed-bottom' : ''
+  
     return (
       <Fragment>
-        <footer className="navbar fContainer">
+        <footer className={`navbar fContainer ${fixedTop}`}>
           <div className="container-fluid justify-content-start">
             <Logo />
             <Button
@@ -26,7 +28,6 @@ class Footer extends React.Component {
         </footer>
       </Fragment>
     );
-  }
 }
 
 export default Footer;
