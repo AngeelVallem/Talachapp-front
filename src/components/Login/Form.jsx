@@ -40,7 +40,7 @@ export default function LoginForm() {
         <form onSubmit={handleSubmit}>
           <div className="d-flex align-items-center">
             <img className="fLogo4" src={logo} alt="logo-icon" />
-            <label className="lb4">Iniciar sesión</label>
+            <label className="lb4">Iniciar Sesión</label>
           </div>
           <div className="form-group col-md-6 formDiv">
             <CustomInput
@@ -64,11 +64,11 @@ export default function LoginForm() {
             onClick={handleSubmit}
             type="submit"
           >
-            Iniciar sesion
+            Iniciar Sesión
           </button>
           <Link className="labLogo3" to="/Register">
             <label className="lblMargin">
-              ¿No tienes una cuenta? Registrarse
+              ¿No tienes una cuenta? Regístrate
             </label>
           </Link>
         </form>

@@ -13,7 +13,7 @@ const Icons = () => {
           href="https://www.facebook.com/Talachapp-102470575439167"
         >
           <img
-            className="fIcons"
+            className="fIcons1"
             src={facebook}
             width="30"
             height="30"
@@ -23,7 +23,7 @@ const Icons = () => {
 
         <Link className="px-3" href="https://www.instagram.com/talachapp/">
           <img
-            className="fIcons"
+            className="fIcons2"
             src={instagram}
             width="30"
             height="30"

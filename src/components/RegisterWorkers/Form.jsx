@@ -48,7 +48,7 @@ export default function FormWorkers() {
       <div className="containerForm2">
         <form onSubmit={handleSubmit}>
           <label className="lb3 text-center">
-            Demuestra tus habilidades uniendote como talachero
+            Demuestra tus habilidades uniéndote como talachero
           </label>
           <div className="form-group col-md-6 formDiv">
             <label>Habilidades</label>
@@ -160,7 +160,7 @@ export default function FormWorkers() {
             />
           </div>
           <button
-            className="btn btn-warning btn-lg btn-block mt-4 buttonStyle"
+            className="btn btn-warning btn-lg btn-block mt-4 buttonStyle3"
             type="submit"
           >
             Registrarme
