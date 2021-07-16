@@ -10,7 +10,7 @@ export default function LoggedNavItems(props) {
   const { user } = props;
   const history = useHistory();
   const signOut = () => {
-    const { setIsLogged } = props;
+    const { setIsLogged   } =  props;
 
     window.localStorage.removeItem("token");
     setIsLogged(false);
@@ -38,7 +38,7 @@ export default function LoggedNavItems(props) {
     );
   }
 
-  return (
+  return   (
     <div className="d-flex align-items-center logged quit ">
       <Link route="home" text="Ver talacheros" className="mx-2 quit " />
       <Link route="tickets" text="Mis tickets" className="mx-2 quit " />
