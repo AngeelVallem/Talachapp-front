@@ -27,7 +27,6 @@ export default function WorkersFilters({ setFilters, filters, reset }) {
   };
 
   useEffect(() => {
-    console.log(cSelected);
     const str = cSelected.reduce((acum,curr) => {
       return acum + `&skills[]=${curr}`
     },'')

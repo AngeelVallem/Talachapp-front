@@ -4,9 +4,9 @@ import { useHistory } from "react-router";
 
 import { Button, ButtonGroup, Input } from "reactstrap";
 import {getUser,workerRegister} from "../../services"
-import {validateToken} from "../../globals/index"
+import {colors, validateToken} from "../../globals/index"
 import "../../styles/WorkersFilters/index.scss";
-
+import Loader from "react-loader-spinner"
 import CustomInput from "./CustomInput";
 // Services
 // import { postPost } from "../../services";
@@ -78,11 +78,18 @@ export default function FormWorkers() {
     setCSelected([...cSelected]);
   };
 
-    if(!user){
-      return(
-        <h1>LOADING</h1>
-      )
-    }
+  if (!user) {
+    return (
+      <div className="fix-screen container d-flex justify-content-center align-items-center">
+      <Loader
+        type="Puff"
+        color={colors.orange}
+        height={200}
+        width={200}
+      />
+      </div>
+    )
+  }
     return (
     <React.Fragment>
       <div className="containerForm2">

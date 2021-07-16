@@ -9,16 +9,17 @@ import {
   Col,
 } from "reactstrap";
 import classnames from "classnames";
+import Loader from 'react-loader-spinner'
 
 import Tickets from "./Ticket";
 import { validateToken } from "../../globals/index";
 import { getUser } from "../../services";
 import { getTickets } from "../../services";
-
+import {colors} from '../../globals/index'
 import "../../styles/Register/styles.scss";
 import "../../styles/RegisterWorkers/styles.scss";
 import "../../styles/Tickets/styles.scss";
-
+import "../../styles/workers/index.scss"
 function TicketsCom() {
   const [activeTab, setActiveTab] = useState("active");
   const [client, setClient] = useState(null);
@@ -56,7 +57,29 @@ function TicketsCom() {
   };
 
   if (!client) {
-    return <h1>LOADING</h1>;
+    return (
+      <div className="fix-screen container d-flex justify-content-center align-items-center">
+      <Loader
+        type="Puff"
+        color={colors.orange}
+        height={200}
+        width={200}
+      />
+      </div>
+    )
+  }
+
+  if (!tickets) {
+    return (
+      <div className="fix-screen container d-flex justify-content-center align-items-center">
+      <Loader
+        type="Puff"
+        color={colors.orange}
+        height={200}
+        width={200}
+      />
+      </div>
+    )
   }
 
   return (

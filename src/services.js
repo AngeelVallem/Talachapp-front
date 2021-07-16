@@ -1,7 +1,8 @@
 import axios from "axios";
 import { toast } from "react-toastify";
 
-const baseUrl = "http://localhost:8080/";
+const baseUrl = "https://talacha-app-boisterous-topi-yd.eu-gb.mybluemix.net/";
+
 
 export async function login(user, navigation) {
   const loginUrl = baseUrl + "users/login";
@@ -240,7 +241,8 @@ export async function workerRegister(id, data,history) {
       draggable: true,
       progress: undefined,
     });
-    history.push("/payment");
+    history.push("/home");
+    alert('Tu card permanecera en invisible hasta realizar el pago')
     return res.data.user;
   } catch (err) {
     toast.error(err.message, {

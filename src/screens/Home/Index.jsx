@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-
+import Loader from "react-loader-spinner"
 import WorkerCard from "../../components/workerCard/Index";
 import WorkersFilters from "../../components/WorkersFilters/Index";
 
 import { getWorkers,getFilteredWorkers } from "../../services";
-
+import {colors} from "../../globals/index"
 import "../../styles/workers/index.scss";
 
 const Home = () => {
@@ -37,12 +37,16 @@ getAllWorkers()
 
   if (!workers) {
     return (
-      <div className="fix-screen">
-        <h1>loading</h1>
+      <div className="fix-screen container d-flex justify-content-center align-items-center">
+      <Loader
+        type="Puff"
+        color={colors.orange}
+        height={200}
+        width={200}
+      />
       </div>
     );
   }
-
 
   return (
     <div className="container fix-screen">
@@ -51,10 +55,11 @@ getAllWorkers()
           <WorkersFilters setFilters={setFilters} filters={filters} reset={getWorkers}/>
         </div>
         <div className="col-12 col-lg-9">
-          <div className="row">
-            {workers === [] ? <h1>No hay talacheros disponibles en esa zona por el</h1> : workers.map((worker, i) => (
+          <div className="row pp">
+            { workers.map((worker, i) => (
               <WorkerCard key={i} worker={worker} />
             ))}
+
           </div>
         </div>
       </div>

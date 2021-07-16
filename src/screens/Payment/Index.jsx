@@ -17,8 +17,6 @@ import VideoSection from "../LandingPage/VideoSection";
 export default function PaymentScreen({ user }) {
   const [refresh, setRefresh] = useState(false);
 
-
-console.log(user);
   const createCheckoutSession = async (priceId) => {
     try {
       const token = window.localStorage.getItem("token");
@@ -30,7 +28,7 @@ console.log(user);
         },
       };
       const { data } = await axios.post(
-        "http://localhost:8080/pay/create-checkout-session",
+        "https://talacha-app-boisterous-topi-yd.eu-gb.mybluemix.net/pay/create-checkout-session",
         { priceId },
         options
       );
@@ -68,7 +66,7 @@ console.log(user);
         },
       };
       const { data } = await axios.delete(
-        `http://localhost:8080/pay/subscriptions/${user.subscriptionId}`,
+        `https://talacha-app-boisterous-topi-yd.eu-gb.mybluemix.net/${user.subscriptionId}`,
         options
       );
       setRefresh(false)
