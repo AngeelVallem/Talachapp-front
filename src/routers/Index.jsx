@@ -40,7 +40,7 @@ export default function RouterApp() {
           <Tickets />
           <Footer fixed/>
         </Route>
-        <Route path="/Admin">
+        <Route path="/admin">
           <Admin />
         </Route>
       </Switch>
