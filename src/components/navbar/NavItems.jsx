@@ -9,10 +9,14 @@ export default function NavItems(props) {
   if (props.column) {
     return (
       <div className="d-flex flex-column align-items-center">
-        <Link className="d-none d-md-block" route="Login" text="Login" />
+        <Link
+          className="d-none d-md-block"
+          route="Login"
+          text="Iniciar Sesión"
+        />
         <Button
           className="mx-2 btn-warning"
-          text="Create an account"
+          text="Iniciar Sesión"
           color={colors.primary}
           link
           route="register"
@@ -23,10 +27,10 @@ export default function NavItems(props) {
 
   return (
     <div className="d-flex align-items-center">
-      <Link className="d-none d-md-block" route="Login" text="Login" />
+      <Link className="d-none d-md-block" route="Login" text="Iniciar Sesión" />
       <Button
         className="mx-2 btn-warning"
-        text="Create an account"
+        text="Registrarse"
         color={colors.primary}
         link
         route="register"

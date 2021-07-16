@@ -24,7 +24,7 @@ export default function RouterApp() {
         <Route exact path="/home">
           <NavBar />
           <Home />
-          <Footer />
+          <Footer fixed />
         </Route>
         <Route path="/register">
           <Register />
@@ -38,7 +38,7 @@ export default function RouterApp() {
         <Route path="/tickets">
           <NavBar />
           <Tickets />
-          <Footer fixed/>
+          <Footer fixed />
         </Route>
         <Route path="/admin">
           <Admin />

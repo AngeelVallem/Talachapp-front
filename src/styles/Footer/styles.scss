@@ -1,6 +1,6 @@
 .fContainer {
   width: 100%;
-  height: 120px;
+  height: 70px;
   background: #ffffff;
   margin-top: 2rem;
 }
@@ -19,8 +19,8 @@
 }
 
 .fLogo {
-  width: 100px;
-  height: 100px;
+  width: 60px;
+  height: 60px;
   
 }
 .labl{
@@ -40,8 +40,8 @@
   width: 50px;
   height: 50px;
   &:hover{
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     transition-duration: .5s;
   }
 }
@@ -49,8 +49,8 @@
   width: 50px;
   height: 50px;
   &:hover{
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     transition-duration: .5s;
   }
 }
@@ -84,3 +84,16 @@
 		color : #FFB367
 	}
 }
+
+@media screen and (max-width: 768px) {
+  .fButton{
+    margin-left: 40px;
+  }
+  .positionIcons{
+    img{
+      display: none;
+    }
+   
+}
+}
+

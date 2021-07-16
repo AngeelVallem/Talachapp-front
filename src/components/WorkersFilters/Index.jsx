@@ -119,7 +119,7 @@ export default function WorkersFilters({ setFilters, filters, reset }) {
           <CustomButton
             text="Resetear filtros"
             color={colors.primary}
-            className="mx-auto"
+            className="mx-auto btn btn-warning"
             onClick={() => {
               resetFilter();
               toast.warning("Filtros reseteados", {

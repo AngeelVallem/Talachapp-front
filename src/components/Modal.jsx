@@ -40,46 +40,50 @@ export default function CustomModal({ modal, id, setModal }) {
         </p>
 
         <div className="d-flex flex-column">
-          <label className="mb-2">Descripcion del trabajo</label>
+          <label className="mb-2">Descripción del trabajo</label>
           <textarea
             value={description}
-	    onChange={(e) => setDescription(e.target.value)}
+            onChange={(e) => setDescription(e.target.value)}
             name="work-description"
             cols="30"
             rows="10"
             className="p-2"
-            placeholder="Ej. Quiero arreglar la tuberia de mi baño."
+            placeholder="Ej. Quiero arreglar la tubería de mi baño."
           ></textarea>
 
           <label className="mt-4">Dirección</label>
-          <input type="text" className="p-2" value={address} onChange={(e) => setAddress(e.target.value)}/>
+          <input
+            type="text"
+            className="p-2"
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
+          />
           <small className="text-muted mb-2">
-            La direccion se mostrara unicamente si el talachero acepta el
+            La dirección se mostrará unicamente si el talachero acepta el
             trabajo
           </small>
-        </div> 
+        </div>
       </ModalBody>
 
       <ModalFooter>
         <Button
+          className="btn btn-warning"
           color={colors.primary}
           onClick={() => {
-		const ticket = 
-			{
-				clientId : user._id,
-				workerId : id ,
-				description,
-				address,
-				status : "pending"
-			}
-		
+            const ticket = {
+              clientId: user._id,
+              workerId: id,
+              description,
+              address,
+              status: "pending",
+            };
 
-		generateTicket(ticket,history)
+            generateTicket(ticket, history);
             toggle();
           }}
           text="Enviar"
         />
-        <Button color={colors.orange} onClick={toggle} text="Cancel" />
+        <Button color={colors.orange} onClick={toggle} text="Cancelar" />
       </ModalFooter>
     </Modal>
   );

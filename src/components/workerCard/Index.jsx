@@ -63,7 +63,8 @@ export default function WorkerCard({ worker }) {
           <p className="p-0 m-0">{worker.price}$/hr</p>
           <Button
             text="Contratar"
-            color={colors.orange}
+            color="#ffe277"
+            className="btn btn-warning"
             onClick={() => setIsOpen(true)}
           />
         </div>

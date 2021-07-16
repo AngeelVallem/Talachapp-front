@@ -24,8 +24,7 @@ function TicketsCom() {
   const [client, setClient] = useState(null);
   const [tickets, setTickets] = useState(null);
   const [token, setToken] = useState(null);
-  const [refresh, setRefresh] = useState(false)
-
+  const [refresh, setRefresh] = useState(false);
 
   async function getClient() {
     try {
@@ -49,8 +48,6 @@ function TicketsCom() {
     }
   }, [token]);
 
-
-
   useEffect(() => {
     getData(activeTab);
   }, [activeTab]);
@@ -59,17 +56,15 @@ function TicketsCom() {
     setActiveTab(tab);
   };
 
-  if(!client){
-    return(
-      <h1>LOADING</h1>
-    )
+  if (!client) {
+    return <h1>LOADING</h1>;
   }
 
   return (
     <div className="d-flex flex-column mrginTop save-top save-bot">
       <Nav tabs className="bg-light align-items-center">
-        <h3 className="">Mis tickets</h3>
-        <NavItem className="tab">
+        <h3 className="">Mis Tickets</h3>
+        <NavItem className="a">
           <NavLink
             className={classnames({ active: activeTab === "active" })}
             onClick={() => {
@@ -79,7 +74,7 @@ function TicketsCom() {
             Activos
           </NavLink>
         </NavItem>
-        <NavItem>
+        <NavItem className="a ">
           <NavLink
             className={classnames({ active: activeTab === "pending" })}
             onClick={() => {
@@ -89,7 +84,7 @@ function TicketsCom() {
             Pendientes
           </NavLink>
         </NavItem>
-        <NavItem>
+        <NavItem className="a">
           <NavLink
             className={classnames({ active: activeTab === "done" })}
             onClick={() => {
@@ -106,11 +101,16 @@ function TicketsCom() {
         <TabContent activeTab={activeTab}>
           <TabPane tabId="active">
             <Row>
-            {tickets.map((ticket, i) => (
+              {tickets.map((ticket, i) => (
                 <>
-                  {(client._id === ticket.clientId || client._id === ticket.workerId)&& (
+                  {(client._id === ticket.clientId ||
+                    client._id === ticket.workerId) && (
                     <Col sm="6" key={i}>
-                      <Tickets ticket={ticket} client={client} refresh={setActiveTab}/>
+                      <Tickets
+                        ticket={ticket}
+                        client={client}
+                        refresh={setActiveTab}
+                      />
                     </Col>
                   )}
                 </>
@@ -121,9 +121,14 @@ function TicketsCom() {
             <Row>
               {tickets.map((ticket, i) => (
                 <>
-                  {(client._id === ticket.clientId || client._id === ticket.workerId)&& (
+                  {(client._id === ticket.clientId ||
+                    client._id === ticket.workerId) && (
                     <Col sm="6" key={i}>
-                      <Tickets ticket={ticket} client={client} refresh={setActiveTab}/>
+                      <Tickets
+                        ticket={ticket}
+                        client={client}
+                        refresh={setActiveTab}
+                      />
                     </Col>
                   )}
                 </>
@@ -131,17 +136,18 @@ function TicketsCom() {
             </Row>
           </TabPane>
           <TabPane tabId="done">
-          <Row>
+            <Row>
               {tickets.map((ticket, i) => (
                 <>
-                  {(client._id === ticket.clientId || client._id === ticket.workerId)&& (
+                  {(client._id === ticket.clientId ||
+                    client._id === ticket.workerId) && (
                     <Col sm="6" key={i}>
                       <Tickets ticket={ticket} client={client} />
                     </Col>
                   )}
                 </>
               ))}
-            </Row>  
+            </Row>
           </TabPane>
         </TabContent>
       )}
