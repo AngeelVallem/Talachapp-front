@@ -9,7 +9,7 @@ import RegisterWorkers from "../screens/WorkersRegister";
 import Login from "../screens/Login/index";
 import Tickets from "../screens/Tickets";
 import Admin from "../screens/Admin";
-import Canceled from "../screens/Payment/Canceled"
+import Canceled from "../screens/Payment/Canceled";
 import PaymentSuccess from "../screens/Payment/Success";
 import Footer from "../components/Footer/";
 
@@ -33,7 +33,6 @@ export default function RouterApp() {
         <Route path="/registerForWorkers">
           <NavBar />
           <RegisterWorkers />
-          <Footer />
         </Route>
         <Route path="/login">
           <Login />
@@ -49,12 +48,9 @@ export default function RouterApp() {
         <Route exact path="/payment/success">
           <NavBar />
           <PaymentSuccess />
-
         </Route>
         <Route exact path="/payment/canceled">
-
           <Canceled />
-
         </Route>
       </Switch>
     </Router>

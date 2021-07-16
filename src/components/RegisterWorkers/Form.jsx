@@ -1,10 +1,10 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 import { useHistory } from "react-router";
 
 import { Button, ButtonGroup, Input } from "reactstrap";
-import {getUser,workerRegister} from "../../services"
-import {validateToken} from "../../globals/index"
+import { getUser, workerRegister } from "../../services";
+import { validateToken } from "../../globals/index";
 import "../../styles/WorkersFilters/index.scss";
 
 import CustomInput from "./CustomInput";
@@ -12,13 +12,12 @@ import CustomInput from "./CustomInput";
 // import { postPost } from "../../services";
 
 export default function FormWorkers() {
-
   const [cSelected, setCSelected] = useState([]);
   const [tarifa, setTarifa] = useState("");
   const [experiencia, setExperiencia] = useState("");
   const [location, setLocation] = useState([]);
-  const [token,setToken] = useState(null)
-  const [user, setUser] = useState(null)
+  const [token, setToken] = useState(null);
+  const [user, setUser] = useState(null);
 
   const history = useHistory();
 
@@ -39,34 +38,33 @@ export default function FormWorkers() {
     }
   }, [token]);
 
-
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
       const newDataWorkers = {
         skills: cSelected,
-        price : tarifa,
-        description : experiencia,
+        price: tarifa,
+        description: experiencia,
         location,
-        premium : false,
-        roles : ["user", "worker"]
+        premium: false,
+        roles: ["user", "worker"],
       };
-      workerRegister(user._id, newDataWorkers,history)
+      workerRegister(user._id, newDataWorkers, history);
       //await postPost(newDataWorkers);
     } catch (error) {
       console.log(error);
     }
   };
 
-  const onChangeLocation= (e) => {
-      const location = e.target.value
+  const onChangeLocation = (e) => {
+    const location = e.target.value;
 
-      if(location === 'All'){
-        setLocation(["Coyoacán"])
-      }
-      setLocation([location])
-  }
+    if (location === "All") {
+      setLocation(["Coyoacán"]);
+    }
+    setLocation([location]);
+  };
 
   const onCheckboxBtnClick = (selected) => {
     const index = cSelected.indexOf(selected);
@@ -78,12 +76,10 @@ export default function FormWorkers() {
     setCSelected([...cSelected]);
   };
 
-    if(!user){
-      return(
-        <h1>LOADING</h1>
-      )
-    }
-    return (
+  if (!user) {
+    return <h1>LOADING</h1>;
+  }
+  return (
     <React.Fragment>
       <div className="containerForm2">
         <form onSubmit={handleSubmit}>
@@ -99,7 +95,7 @@ export default function FormWorkers() {
                 onClick={() => onCheckboxBtnClick("Carpintería")}
                 active={cSelected.includes("Carpintería")}
               >
-                Carpinteria
+                Carpintería
               </Button>
               <Button
                 color="white"
@@ -115,7 +111,7 @@ export default function FormWorkers() {
                 active={cSelected.includes("Mecánico")}
                 className="btn-outline-warning text-light m-1"
               >
-                Mecanico
+                Mecánico
               </Button>
               <Button
                 color="white"
@@ -123,7 +119,7 @@ export default function FormWorkers() {
                 active={cSelected.includes("Albañilería")}
                 className="btn-outline-warning text-light m-1"
               >
-                Albañileria
+                Albañilería
               </Button>
             </ButtonGroup>
           </div>
@@ -145,11 +141,11 @@ export default function FormWorkers() {
               <option selected value="All">
                 Todas
               </option>
-              <option value="Álvaro_Obregón">Alvaro Obregon</option>
+              <option value="Álvaro_Obregón">Álvaro Obregón</option>
               <option value="Azcapotzalco">Azcapotzalco</option>
               <option value="Benito_Juárez">Benito Juárez</option>
               <option value="Coyoacán">Coyoacán</option>
-              <option value= "Cuajimalpa_de_Morelos">
+              <option value="Cuajimalpa_de_Morelos">
                 Cuajimalpa de Morelos
               </option>
               <option value="Cuauhtémoc">Cuauhtémoc</option>

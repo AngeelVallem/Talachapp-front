@@ -7,4 +7,35 @@
 
 .logged {
 	cursor: pointer;
+	
+	.q{
+		margin-left: 37px;
+		justify-content: center;
+	}
+	.link{
+		margin-top: 10px;
+	}
+	.marginr{
+		margin-right: 28px;
+	}
+	.abcd{
+		margin-top: 24px;
+	}
 }
+
+
+@media screen and (max-width: 990px) {
+	.quit{
+		display: none;
+	}
+	
+	 
+  }
+  
+  @media screen and (min-width: 990px) {
+	
+	.link:hover{
+		color: orange;
+	}
+	 
+  }

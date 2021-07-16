@@ -17,8 +17,7 @@ import VideoSection from "../LandingPage/VideoSection";
 export default function PaymentScreen({ user }) {
   const [refresh, setRefresh] = useState(false);
 
-
-console.log(user);
+  console.log(user);
   const createCheckoutSession = async (priceId) => {
     try {
       const token = window.localStorage.getItem("token");
@@ -48,7 +47,7 @@ console.log(user);
       const stripePromise = await loadStripe(
         "pk_test_51J7OfDI4Gb0YOpfskBaERdTeGmAFb2MPWCe5PFdmHVqwIZbYaw0LuN4C4oDse6KCZf8NX9joUHdRvbOFNhgSNRUk00RpG2YL9F"
       );
-	setRefresh(true)
+      setRefresh(true);
       await stripePromise.redirectToCheckout({
         sessionId: data.sessionId,
       });
@@ -71,16 +70,13 @@ console.log(user);
         `http://localhost:8080/pay/subscriptions/${user.subscriptionId}`,
         options
       );
-      setRefresh(false)
+      setRefresh(false);
     } catch (error) {
       console.error(error);
     }
   };
   if (user.subscriptionId) {
-    return (
-	<>
-	</>
-    );
+    return <></>;
   }
   return (
     <Button

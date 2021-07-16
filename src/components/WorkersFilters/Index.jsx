@@ -28,12 +28,12 @@ export default function WorkersFilters({ setFilters, filters, reset }) {
 
   useEffect(() => {
     console.log(cSelected);
-    const str = cSelected.reduce((acum,curr) => {
-      return acum + `&skills[]=${curr}`
-    },'')
+    const str = cSelected.reduce((acum, curr) => {
+      return acum + `&skills[]=${curr}`;
+    }, "");
 
-    setFilters(str)
-  },[cSelected])
+    setFilters(str);
+  }, [cSelected]);
 
   const onCheckboxBtnClick = (selected) => {
     const index = cSelected.indexOf(selected);
@@ -79,7 +79,7 @@ export default function WorkersFilters({ setFilters, filters, reset }) {
         <ButtonGroup className="d-flex flex-wrap p-3 select">
           <Button
             color="white"
-            className=" btn-outline-warning text-light m-1 "
+            className=" btn-outline-warning  m-1 "
             onClick={() => onCheckboxBtnClick("Carpintería")}
             active={cSelected.includes("Carpintería")}
           >
@@ -88,7 +88,7 @@ export default function WorkersFilters({ setFilters, filters, reset }) {
           <Button
             color="white"
             onClick={() => onCheckboxBtnClick("Electricista")}
-            className="btn-outline-warning text-light m-1"
+            className="btn-outline-warning  m-1"
             active={cSelected.includes("Electricista")}
           >
             Electricista
@@ -97,7 +97,7 @@ export default function WorkersFilters({ setFilters, filters, reset }) {
             color="white"
             onClick={() => onCheckboxBtnClick("Mecánico")}
             active={cSelected.includes("Mecánico")}
-            className="btn-outline-warning text-light m-1"
+            className="btn-outline-warning  m-1"
           >
             Mecánico
           </Button>
@@ -105,7 +105,7 @@ export default function WorkersFilters({ setFilters, filters, reset }) {
             color="white"
             onClick={() => onCheckboxBtnClick("Albañilería")}
             active={cSelected.includes("Albañilería")}
-            className="btn-outline-warning text-light m-1"
+            className="btn-outline-warning  m-1"
           >
             Albañilería
           </Button>
@@ -141,4 +141,3 @@ export default function WorkersFilters({ setFilters, filters, reset }) {
     </div>
   );
 }
-

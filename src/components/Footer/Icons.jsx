@@ -21,7 +21,7 @@ const Icons = () => {
           />
         </a>
 
-        <a className="px-3" href="https://www.instagram.com/talachapp/">
+        <a className="" href="https://www.instagram.com/talachapp/">
           <img
             className="fIcons2"
             src={instagram}
