@@ -3,10 +3,10 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 import Image from '../../components/Image'
 import sub from '../../assets/Home/sub.svg'
-import Button from "../../components/Button";
-import {colors} from '../../globals/index'
+import '../../styles/app.scss'
 const Success = () => {
   const [user, setUser] = useState({});
+
 
   const history = useHistory();
   const session_id = history.location.search.substr(
@@ -49,20 +49,18 @@ const Success = () => {
   }, [session_id]);
 
   return (
-    <div className="container">
-      <div className="row">
-        {user && (
-          <div className="col-md-4 offset-4">
-		  <h1>Gracias por tu suscripción</h1>
+	<div className="d-flex justify-content-center align-items-center success">
+		        {user && (
+		<div>
+		  <h1>Gracias por tu suscripción</h1> <h1>{user.name}</h1>
 		  <small>Disfruta todas las ventajas de ser premium</small>
 		  
 		  <Image src={sub} size={'500px'}/>
 		  
-	  </div>
+	 	 </div>
 	 
         )}
-      </div>
-    </div>
+	</div>
   );
 };
 

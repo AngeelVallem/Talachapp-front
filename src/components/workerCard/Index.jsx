@@ -20,7 +20,6 @@ export default function WorkerCard({ worker }) {
       <Modal modal={isOpen} setModal={setIsOpen} id={worker._id} />
       <div className="card-worker m-3 p-3 shadow-sm">
         <div className="d-flex justify-content-between align-items-center over">
-          <Link to={`/${worker._id}`} className="link">
             <div className="d-flex flex-column over">
               <div className="d-flex align-items-center over">
                 <Image
@@ -42,7 +41,6 @@ export default function WorkerCard({ worker }) {
                 ))}
               </div>
             </div>
-          </Link>
         </div>
 
         <p className="mb-2 over">{worker.description}</p>

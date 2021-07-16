@@ -29,7 +29,7 @@ export default function PaymentScreen({ user }) {
         },
       };
       const { data } = await axios.post(
-        "http://localhost:8080/pay/create-checkout-session",
+        "https://talacha-app-boisterous-topi-yd.eu-gb.mybluemix.net/pay/create-checkout-session",
         { priceId },
         options
       );
@@ -67,7 +67,7 @@ export default function PaymentScreen({ user }) {
         },
       };
       const { data } = await axios.delete(
-        `http://localhost:8080/pay/subscriptions/${user.subscriptionId}`,
+        `https://talacha-app-boisterous-topi-yd.eu-gb.mybluemix.net/${user.subscriptionId}`,
         options
       );
       setRefresh(false);

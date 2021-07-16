@@ -46,7 +46,7 @@ export default function RouterApp() {
           <Admin />
         </Route>
         <Route exact path="/payment/success">
-          <NavBar />
+        <NavBar />
           <PaymentSuccess />
         </Route>
         <Route exact path="/payment/canceled">

@@ -1,5 +1,7 @@
 import React,{useEffect} from "react";
+import Loader from 'react-loader-spinner'
 import {useHistory} from "react-router-dom"
+import {colors } from "../../globals/index"
 export default function Canceled() {
 
 	const history = useHistory();
@@ -9,8 +11,13 @@ export default function Canceled() {
 	},[])
 	
   return (
-    <div className="spinner-border text-warning" role="status">
-      <span className="sr-only">Loading...</span>
-    </div>
+	<div className="fix-screen container d-flex justify-content-center align-items-center">
+	<Loader
+	  type="Puff"
+	  color={colors.orange}
+	  height={200}
+	  width={200}
+	/>
+	</div>
   );
 }
