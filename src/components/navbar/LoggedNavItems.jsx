@@ -37,15 +37,16 @@ export default function LoggedNavItems(props) {
       </div>
     );
   }
+
   return (
     <div className="d-flex align-items-center logged quit ">
       <Link route="home" text="Ver talacheros" className="mx-2 quit " />
       <Link route="tickets" text="Mis tickets" className="mx-2 quit " />
       <Link
-        route="registerForWorkers"
-        text="Unete como Talachero"
-        className="mx-2 quit "
-      />
+          route="registerForWorkers"
+          text="Unete como Talachero"
+          className="mx-2 quit "
+        />
       <p className="abcd quit">
         {user.name} {user.lastName}
       </p>
